@@ -11,6 +11,7 @@ function App() {
 
   const [name, setName] = useState('');
   const [lastName, setLastName] = useState('');
+  const [hideFirstName, setHideFirstName] = useState(false);
 
   const handleChange = (event) => {
     setName(event.target.value);
@@ -20,12 +21,17 @@ function App() {
     setLastName(event.target.value);
   }
 
+  const handleCheckboxChange = (event) => {
+    setHideFirstName(!hideFirstName)
+  }
+
   return (
     <div class="name-input">
         <h1>My name via a functional component is : {name}, {lastName}</h1>
-        <input type="text" value ={name} onChange = {handleChange}/>
+        { !hideFirstName && <input type="text" value ={name} onChange = {handleChange}/>}
         <input type="text" value ={lastName} onChange = {handleLastNameChange}/>
-      </div>
+        <input type='checkbox' onChange={handleCheckboxChange}/>
+    </div>
   );
 }
 
