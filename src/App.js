@@ -28,9 +28,9 @@ function App() {
   return (
     <div class="name-input">
         <h1>My name via a functional component is : {name}, {lastName}</h1>
+        <input type='checkbox' value={hideFirstName} onChange={handleCheckboxChange}/>
         { !hideFirstName && <input type="text" value ={name} onChange = {handleChange}/>}
-        <input type="text" value ={lastName} onChange = {handleLastNameChange}/>
-        <input type='checkbox' onChange={handleCheckboxChange}/>
+        LastName: <input type="text" value ={lastName} onChange = {handleLastNameChange}/>
     </div>
   );
 }
